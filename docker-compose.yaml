@@ -1,0 +1,18 @@
+version: '3'
+services:
+  proxy:
+    image: nginx:latest
+    ports:
+      - "9080:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  grpc1:
+    image: grpc-example:latest
+    container_name: grpc1
+    ports:
+      - "9081:8080"
+  grpc2:
+    image: grpc-example:latest
+    container_name: grpc2
+    ports:
+      - "9082:8080"
